@@ -36,8 +36,9 @@ install_deps () {
   # Platforms: linux/arm64, linux/riscv64, linux/ppc64le, linux/s390x,
   #            linux/386, linux/arm/v7, linux/arm/v6
   sudo apt-get update -q -y
-  sudo apt-get -qq install -y qemu qemu-user-static
-  docker run --rm --privileged --cpuset-cpus="0" multiarch/qemu-user-static --reset -p yes
+  #sudo apt-get -qq install -y qemu qemu-user-static
+  docker run --rm --privileged docker/binfmt:a7996909642ee92942dcd6cff44b9b95f08dad64
+  docker run --rm --privileged --cpuset-cpus="0" multiarch/qemu-user-static:register --reset -p yes
 }
 
 build_container () {
