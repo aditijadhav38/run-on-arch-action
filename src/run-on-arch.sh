@@ -38,7 +38,7 @@ install_deps () {
   sudo apt-get update -q -y
   #sudo apt-get -qq install -y qemu qemu-user-static
   docker run --rm --privileged docker/binfmt:a7996909642ee92942dcd6cff44b9b95f08dad64
-  docker run --rm --privileged --cpuset-cpus="0" multiarch/qemu-user-static:register --reset -p yes
+  docker run --rm --privileged --cpuset-cpus="0" multiarch/qemu-user-static:5.2.0-2 --reset -p yes
 }
 
 build_container () {
